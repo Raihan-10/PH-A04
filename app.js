@@ -25,12 +25,12 @@ function calculateCount() {
             emptyState.classList.add(hidden);
         }
 
-    } else if(currentStatus ==='rejected'){
-        if(rejectedList.length ===0){
+    } else if (currentStatus === 'rejected') {
+        if (rejectedList.length === 0) {
             jobCount.innerText = '0 jobs';
             emptyState.classList.remove('hidden');
         }
-        else{
+        else {
             jobCount.innerText = rejectedList.length + "of" + total + "jobs";
             emptyState.classList.add('hidden');
         }
@@ -38,6 +38,24 @@ function calculateCount() {
 
 }
 
+// toggle
+
+function toggle(id) {
+    currentStatus = id;
+    const btnIds = ['all', 'interview', 'rejected'];
+    for (let id of btnIds) {
+        const btn = document.getElementById(id);
+        if (id == id) {
+            btn.classList.add('active-tab', 'bg-[#3B82F6]', 'text-white');
+            btn.classList.remove('bg-white', 'text-black');
+        }
+        else {
+            btn.classList.remove('active-tab', 'bg-[#3B82F6]', 'text-white');
+            btn.classList.add('bg-white', 'text-black');
+
+        }
+    }
+}
 
 
 
