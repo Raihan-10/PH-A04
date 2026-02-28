@@ -27,7 +27,7 @@ function toggle(id) {
 
     const allCards = allContainer.querySelectorAll('.card');
     for (const card of allCards) {
-        card.classList.add('hidden'); 
+        card.classList.add('hidden');
 
         if (id === 'all') {
             card.classList.remove('hidden');
@@ -44,10 +44,10 @@ function toggle(id) {
 function updateStat() {
     const allCards = allContainer.querySelectorAll('.card');
     const total = allCards.length;
-    
+
     let interviewMatch = [];
     let rejectedMatch = [];
-    
+
     for (const card of allCards) {
         if (card.classList.contains('status-interview')) {
             interviewMatch.push(card);
@@ -95,7 +95,7 @@ function updateStat() {
     }
 }
 
-allContainer.addEventListener('click', function(event) {
+allContainer.addEventListener('click', function (event) {
     const clickElement = event.target;
     const card = clickElement.closest('.card');
 
@@ -105,24 +105,24 @@ allContainer.addEventListener('click', function(event) {
 
     if (clickElement.classList.contains('interview')) {
         card.classList.remove('status-rejected');
-        card.classList.add('status-interview'); 
+        card.classList.add('status-interview');
         statusBadge.innerText = 'Interviewed';
-    } 
+    }
     else if (clickElement.classList.contains('rejected')) {
         card.classList.remove('status-interview');
-        card.classList.add('status-rejected'); 
+        card.classList.add('status-rejected');
         statusBadge.innerText = 'Rejected';
-    } 
+    }
     else if (clickElement.classList.contains('delete') || clickElement.closest('.delete')) {
         if (currentTab === 'all') {
-            card.remove(); 
+            card.remove();
         } else {
             card.classList.remove('status-interview', 'status-rejected');
             statusBadge.innerText = 'Not Applied';
         }
     }
-    
-    toggle(currentTab); 
+
+    toggle(currentTab);
 });
 
 toggle(currentTab);
